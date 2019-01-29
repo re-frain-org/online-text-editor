@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+	<head prefix="og:http://ogp.me/ns">
+		<meta charset="utf-8" />
+		<meta content="Re Frain" name="author" />
+		<meta content="いつでもどこでも使えるオンラインテキストエディタ" name="description" />
+		<meta content="lightgray" name="msapplication-TileColor" />
+		<meta content="res/mstile-144x144.png" name="msapplication-TileImage" />
+		<meta content="lightgray" name="theme-color" />
+		<meta content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" name="viewport" />
+		<meta content="いつでもどこでも使えるオンラインテキストエディタ" property="og:description" />
+		<meta content="https://re-frain-org.github.io/online-text-editor/res/image.png" property="og:image" />
+		<meta content="re.frain.org" property="og:site_name" />
+		<meta content="Online Text Editor | re.frain.org" property="og:title" />
+		<meta content="website" property="og:type" />
+		<meta content="https://re-frain-org.github.io/online-text-editor/index.html" property="og:url" />
+		<title>Online Text Editor | re.frain.org</title>
+		<link href="res/favicon.ico" rel="icon" type="image/vnd.microsoft.icon" />
+		<link href="res/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+		<link href="res/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" />
+		<link href="res/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60" />
+		<link href="res/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
+		<link href="res/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+		<link href="res/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
+		<link href="res/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+		<link href="res/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
+		<link href="res/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+		<link href="res/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" />
+		<link href="res/android-chrome-36x36.png" rel="icon" sizes="36x36" type="image/png" />
+		<link href="res/android-chrome-48x48.png" rel="icon" sizes="48x48" type="image/png" />
+		<link href="res/android-chrome-72x72.png" rel="icon" sizes="72x72" type="image/png" />
+		<link href="res/android-chrome-96x96.png" rel="icon" sizes="96x96" type="image/png" />
+		<link href="res/android-chrome-128x128.png" rel="icon" sizes="128x128" type="image/png" />
+		<link href="res/android-chrome-144x144.png" rel="icon" sizes="144x144" type="image/png" />
+		<link href="res/android-chrome-152x152.png" rel="icon" sizes="152x152" type="image/png" />
+		<link href="res/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png" />
+		<link href="res/android-chrome-256x256.png" rel="icon" sizes="256x256" type="image/png" />
+		<link href="res/android-chrome-384x384.png" rel="icon" sizes="384x384" type="image/png" />
+		<link href="res/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png" />
+		<link href="res/icon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+		<link href="res/icon-24x24.png" rel="icon" sizes="24x24" type="image/png" />
+		<link href="res/icon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+		<link href="res/icon-36x36.png" rel="icon" sizes="36x36" type="image/png" />
+		<link href="res/icon-48x48.png" rel="icon" sizes="48x48" type="image/png" />
+		<link href="res/icon-72x72.png" rel="icon" sizes="72x72" type="image/png" />
+		<link href="res/icon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
+		<link href="res/icon-128x128.png" rel="icon" sizes="128x128" type="image/png" />
+		<link href="res/icon-144x144.png" rel="icon" sizes="144x144" type="image/png" />
+		<link href="res/icon-152x152.png" rel="icon" sizes="152x152" type="image/png" />
+		<link href="res/icon-160x160.png" rel="icon" sizes="160x160" type="image/png" />
+		<link href="res/icon-192x192.png" rel="icon" sizes="192x192" type="image/png" />
+		<link href="res/icon-196x196.png" rel="icon" sizes="196x196" type="image/png" />
+		<link href="res/icon-256x256.png" rel="icon" sizes="256x256" type="image/png" />
+		<link href="res/icon-384x384.png" rel="icon" sizes="384x384" type="image/png" />
+		<link href="res/icon-512x512.png" rel="icon" sizes="512x512" type="image/png" />
+		<link href="res/manifest.json" rel="manifest" />
+		<link rel="stylesheet" href="../res/app.css" />
+		<link rel="stylesheet" href="./style.css" />
+		<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+		<script defer src="../res/app.js"></script>
+		<script defer src="./script.js"></script>
+	</head>
+	<body>
+		<div id="screen">
+			<div class="flex" id="header">
+				<div class="center flex disselectable ui-clickable" id="user-name">SignIn</div>
+				<select class="disselectable ui-clickable" id="file-list">
+					<option value="">ファイルを選択</option>
+				</select>
+				<div class="center flex disselectable ui-clickable" id="menu-button">Menu</div>
+			</div>
+			<textarea id="text-editor" spellcheck="false"></textarea>
+			<dialog id="menu-dialog">
+				<div class="center flex" id="menu-container">
+					<div class="center flex disselectable ui-clickable" id="create-button">Create</div>
+					<div class="center flex disselectable ui-clickable" id="save-button">Save</div>
+					<div class="center flex disselectable ui-clickable" id="delete-button">Delete</div>
+					<div class="center flex disselectable ui-clickable" id="share-button">Share</div>
+					<div class="center flex disselectable ui-clickable" id="close-button">Close</div>
+				</div>
+			</dialog>
+			<dialog id="alert-dialog">
+				<div class="center flex" id="alert-container">
+					<div class="center flex ui-disclickable" id="alert-text"></div>
+					<div class="center flex disselectable ui-clickable" id="alert-button">Close</div>
+				</div>
+			</dialog>
+			<dialog id="share-dialog">
+				<div class="center flex" id="share-container">
+					<div class="center flex ui-disclickable" id="share-text">上書きしますか？</div>
+					<div class="flex">
+						<div class="center flex disselectable ui-clickable" id="negative-button">No</div>
+						<div class="center flex disselectable ui-clickable" id="positive-button">Yes</div>
+					</div>
+				</div>
+			</dialog>
+		</div>
+	</body>
+</html>

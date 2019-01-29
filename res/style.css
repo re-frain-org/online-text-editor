@@ -1,0 +1,92 @@
+@charset "utf-8";
+@font-face{
+	font-family: "Cica";
+	src: url("Cica.ttf");
+}
+html{
+	font-size: 10px;
+	height: 100%;
+}
+body{
+	height: 100%;
+	margin: 0;
+	width: 100%;
+}
+#screen{
+	height: 100%;
+	background-color: lightgray;
+	margin: 0 auto 0 auto;
+	width: 36rem;
+}
+.center{
+	align-items: center;
+	justify-content: center;
+}
+.disselectable{
+	/* for Firefox */
+	-moz-user-select: none;
+	/* for Internet Explorer */
+	-ms-user-select: none;
+	/* for Opera */
+	-o-user-select: none;
+	/* for Google Chrome, Safari */
+	-webkit-user-select: none;
+	
+	user-select: none;
+}
+.flex{
+	/* for Firefox */
+	display: -moz-flex;
+	/* for Internet Explorer */
+	display: -ms-flex;
+	/* for Opera */
+	display: -o-flex;
+	/* for Google Chrome, Safari */
+	display: -webkit-flex;
+	
+	display: flex;
+}
+.ui-clickable{
+	/* for Firefox */
+	-moz-box-sizing: border-box;
+	/* for Internet Explorer */
+	-ms-box-sizing: border-box;
+	/* for Opera */
+	-o-box-sizing: border-box;
+	/* for Google Chrome, Safari */
+	-webkit-box-sizing: border-box;
+	
+	background-color: lightgray;
+	border-bottom: gray solid 0.1rem;
+	border-left: white solid 0.1rem;
+	border-right: gray solid 0.1rem;
+	border-top: white solid 0.1rem;
+	box-sizing: border-box;
+	font-size: 1rem;
+	overflow: hidden;
+}
+.ui-clickable:active{
+	border-bottom: white solid 0.1rem;
+	border-left: gray solid 0.1rem;
+	border-right: white solid 0.1rem;
+	border-top: gray solid 0.1rem;
+}
+.ui-disclickable{
+	/* for Firefox */
+	-moz-box-sizing: border-box;
+	/* for Internet Explorer */
+	-ms-box-sizing: border-box;
+	/* for Opera */
+	-o-box-sizing: border-box;
+	/* for Google Chrome, Safari */
+	-webkit-box-sizing: border-box;
+	
+	background-color: lightgray;
+	border-bottom: gray solid 0.1rem;
+	border-left: white solid 0.1rem;
+	border-right: gray solid 0.1rem;
+	border-top: white solid 0.1rem;
+	box-sizing: border-box;
+	font-size: 1rem;
+	overflow: hidden;
+}

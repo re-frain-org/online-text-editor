@@ -1,0 +1,33 @@
+@charset "utf-8";
+#header{
+	height: 4rem;
+	width: 36rem;
+}
+#user-name,
+#file-name{
+	height: 4rem;
+	width: 18rem;
+}
+#text-editor{
+	/* for Firefox */
+	-moz-box-sizing: border-box;
+	/* for Internet Explorer */
+	-ms-box-sizing: border-box;
+	/* for Opera */
+	-o-box-sizing: border-box;
+	/* for Google Chrome, Safari */
+	-webkit-box-sizing: border-box;
+	
+	border: gray solid 0.1rem;
+	box-sizing: border-box;
+	cursor: text;
+	display: block;
+	font-family: "Cica";
+	font-size: 1rem;
+	height: calc(100% - 4rem);
+	outline: none;
+	padding: 0;
+	resize: none;
+	white-space: nowrap;
+	width: 36rem;
+}
