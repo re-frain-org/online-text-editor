@@ -13,8 +13,8 @@
 	self.addEventListener("install",function(event){
 		event.waitUntil(caches.open(`${CACHE_NAME}-${CACHE_VERSION}`).then(function(cache){
 			return cache.addAll([
-				"/re-frain-org.github.io/res/app.css",
-				"/re-frain-org.github.io/res/app.js",
+				"/res/app.css",
+				"/res/app.js",
 				`/${CACHE_NAME}/index.html`,
 				`/${CACHE_NAME}/script.js`,
 				`/${CACHE_NAME}/style.css`
