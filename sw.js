@@ -15,9 +15,9 @@
 			return cache.addAll([
 				"/re-frain-org.github.io/res/app.css",
 				"/re-frain-org.github.io/res/app.js",
-				`/re-frain-org.github.io/${CACHE_NAME}/index.html`,
-				`/re-frain-org.github.io/${CACHE_NAME}/script.js`,
-				`/re-frain-org.github.io/${CACHE_NAME}/style.css`
+				`/${CACHE_NAME}/index.html`,
+				`/${CACHE_NAME}/script.js`,
+				`/${CACHE_NAME}/style.css`
 			]);
 		}));
 	},false);
