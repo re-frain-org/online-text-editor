@@ -120,26 +120,34 @@
 	createButton.addEventListener("click",function(event){
 		if(user!=null){
 			let prompt="";
-			while(prompt==""){
-				prompt=window.prompt("ファイル名を入力してください。","");
+			while(true){
+				if(prompt==""){
+					prompt=window.prompt("ファイル名を入力してください。","");
+					continue;
+				}
+				else if(prompt=="value"){
+					prompt=window.prompt("使用できないファイル名です。","");
+					continue;
+				}
+				else{
+					break;
+				}
 			}
-			if(prompt!=null){
-				ref.child(`${user.uid}/${prompt}/value`).set("").then(function(resolve){
-					const option=document.createElement("option");
-					option.textContent=prompt;
-					option.value=prompt;
-					fileList.appendChild(option);
-					fileList.value=prompt;
-					textEditor.value="";
-					menuDialog.close();
-					alertText.textContent="作成しました。";
-					alertDialog.showModal();
-				}).catch(function(reject){
-					menuDialog.close();
-					alertText.textContent="作成に失敗しました。";
-					alertDialog.showModal();
-				});
-			}
+			ref(`${user.uid}/${prompt}/value`).set("").then(function(resolve){
+				const option=document.createElement("option");
+				option.textContent=prompt;
+				option.value=prompt;
+				fileList.appendChild(option);
+				fileList.value=prompt;
+				textEditor.value="";
+				menuDialog.close();
+				alertText.textContent="作成しました。";
+				alertDialog.showModal();
+			}).catch(function(reject){
+				menuDialog.close();
+				alertText.textContent="作成に失敗しました。";
+				alertDialog.showModal();
+			});
 		}
 	},false);
 	saveButton.addEventListener("click",function(event){
@@ -228,10 +236,10 @@
 						const iterator=Object.keys(object)[Symbol.iterator]();
 						let next=false;
 						while(!(next=iterator.next()).done){
-							let value=object[next.value];
+							const value=object[next.value];
 							if(next.value=="value"){
-								let option=document.createElement("option");
-								let string=parent.slice(0,-1);
+								const option=document.createElement("option");
+								const string=parent.slice(0,-1);
 								option.textContent=string;
 								option.value=string;
 								fileList.appendChild(option);
