@@ -212,7 +212,7 @@
 				}).then(function(resolve){
 					ref.child(`${user.uid}/${value}/key`).set(key);
 					shareDialog.close();
-					alertText.textContent=`共有しました。\nURL : https://re-frain-org.github.io/online-text-editor/share/index.html?id=${key}`;
+					alertText.textContent=`共有しました。\nURL: https://re-frain-org.github.io/online-text-editor/share/index.html?id=${key}`;
 					alertDialog.showModal();
 				}).catch(function(reject){
 					shareDialog.close();
