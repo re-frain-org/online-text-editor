@@ -79,7 +79,7 @@
 			const options=fileList.options;
 			const value=options[options.selectedIndex].value;
 			if(value!=""){
-				alertText.textContent="Now loading...";
+				alertText.textContent="Now loading…";
 				alertDialog.showModal();
 				ref.child(`${user.uid}/${value}/value`).once("value",function(data){
 					const val=data.val();
@@ -104,7 +104,7 @@
 			const value=textEditor.value;
 			const left=value.substring(0,start);
 			const right=value.substring(start,value.length);
-			textEditor.value=left+"\t"+right;
+			textEditor.value=`${left}\t${right}`;
 			textEditor.selectionEnd=start+1;
 		}
 	},false);
@@ -146,7 +146,7 @@
 		if(user!=null){
 			const options=fileList.options;
 			const value=options[options.selectedIndex].value;
-			ref.child(user.uid+"/"+value+"/value").set(textEditor.value).then(function(resolve){
+			ref.child(`${user.uid}/${value}/value`).set(textEditor.value).then(function(resolve){
 				menuDialog.close();
 				alertText.textContent="保存しました。";
 				alertDialog.showModal();
@@ -161,7 +161,7 @@
 		if(user!=null){
 			const options=fileList.options;
 			const value=options[options.selectedIndex].value;
-			ref.child(user.uid+"/"+value).remove().then(function(resolve){
+			ref.child(`${user.uid}/${value}`).remove().then(function(resolve){
 				fileList.removeChild(options[options.selectedIndex]);
 				textEditor.value="";
 				menuDialog.close();
@@ -186,47 +186,25 @@
 		event.preventDefault();
 	},false);
 	negativeButton.addEventListener("click",function(event){
-		if(user!=null){
-			const options=fileList.options;
-			const value=options[options.selectedIndex].value;
-			const key=ref.child("share/").push().key;
-			ref.child("share/"+key).set({
-				"file":value,
-				"text":textEditor.value,
-				"user":userName.textContent
-			}).then(function(resolve){
-				ref.child(user.uid+"/"+value+"/key").set(key);
-				shareDialog.close();
-				alertText.textContent="共有しました。\nURL : https://re-frain-org.github.io/online-text-editor/share/index.html?id="+key;
-				alertDialog.showModal();
-			}).catch(function(reject){
-				shareDialog.close();
-				alertText.textContent="共有に失敗しました。";
-				alertDialog.showModal();
-			});
-		}
+		shareDialog.close();
 	},false);
 	positiveButton.addEventListener("click",function(event){
 		if(user!=null){
 			const options=fileList.options;
 			const value=options[options.selectedIndex].value;
-			ref.child(user.uid+"/"+value+"/key").once("value",function(data){
+			ref.child(`${user.uid}/${value}/key`).once("value",function(data){
 				const val=data.val();
-				let key=null;
-				if(val!=null){
-					key=val;
-				}
-				else{
-					key=ref.child("share/").push().key;
-				}
-				ref.child("share/"+key).set({
-					"file":value,
-					"text":textEditor.value,
-					"user":userName.textContent
+				const key=val!=null?
+						val:
+						ref.child("share/").push().key;
+				ref.child(`share/${key}`).set({
+					"file": value,
+					"text": textEditor.value,
+					"user": userName.textContent
 				}).then(function(resolve){
-					ref.child(user.uid+"/"+value+"/key").set(key);
+					ref.child(`${user.uid}/${value}/key`).set(key);
 					shareDialog.close();
-					alertText.textContent="共有しました。\nURL : https://re-frain-org.github.io/online-text-editor/share/index.html?id="+key;
+					alertText.textContent=`共有しました。\nURL : https://re-frain-org.github.io/online-text-editor/share/index.html?id=${key}`;
 					alertDialog.showModal();
 				}).catch(function(reject){
 					shareDialog.close();
@@ -259,14 +237,14 @@
 								fileList.appendChild(option);
 							}
 							else if(typeof value=="object"){
-								generator(value,parent+next.value+"/");
+								generator(value,`${parent+next.value}/`);
 							}
 						}
 					})(val);
 				}
 			});
 			menuDialog.close();
-			alertText.textContent="アカウント : "+user.displayName+"でサインインしました。";
+			alertText.textContent=`アカウント: ${user.displayName}でサインインしました。`;
 			alertDialog.showModal();
 		}
 	}).catch(function(reject){
