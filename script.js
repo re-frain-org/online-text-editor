@@ -133,7 +133,7 @@
 					break;
 				}
 			}
-			ref(`${user.uid}/${prompt}/value`).set("").then(function(resolve){
+			ref.child(`${user.uid}/${prompt}/value`).set("").then(function(resolve){
 				const option=document.createElement("option");
 				option.textContent=prompt;
 				option.value=prompt;
