@@ -124,28 +124,20 @@
 				prompt=window.prompt("ファイル名を入力してください。","");
 			}
 			if(prompt!=null){
-				ref.child(`${user.uid}/${prompt}`).once("value",function(data){
-					if(data.val()==null){
-						ref.child(`${user.uid}/${prompt}/value`).set("").then(function(resolve){
-							const option=document.createElement("option");
-							option.textContent=prompt;
-							option.value=prompt;
-							fileList.appendChild(option);
-							fileList.value=prompt;
-							textEditor.value="";
-							menuDialog.close();
-							alertText.textContent="作成しました。";
-							alertDialog.showModal();
-						}).catch(function(reject){
-							menuDialog.close();
-							alertText.textContent="作成に失敗しました。";
-							alertDialog.showModal();
-						});
-					}
-					else{
-						alertText.textContent="作成に失敗しました。";
-						alertDialog.showModal();
-					}
+				ref.child(`${user.uid}/${prompt}/value`).set("").then(function(resolve){
+					const option=document.createElement("option");
+					option.textContent=prompt;
+					option.value=prompt;
+					fileList.appendChild(option);
+					fileList.value=prompt;
+					textEditor.value="";
+					menuDialog.close();
+					alertText.textContent="作成しました。";
+					alertDialog.showModal();
+				}).catch(function(reject){
+					menuDialog.close();
+					alertText.textContent="作成に失敗しました。";
+					alertDialog.showModal();
 				});
 			}
 		}
