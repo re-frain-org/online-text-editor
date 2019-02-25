@@ -126,7 +126,7 @@
 			if(prompt!=null){
 				ref.child(`${user.uid}/${prompt}`).once("value",function(data){
 					if(data.val()==null){
-						ref.child(user.uid+"/"+prompt+"/value").set("").then(function(resolve){
+						ref.child(`${user.uid}/${prompt}/value`).set("").then(function(resolve){
 							const option=document.createElement("option");
 							option.textContent=prompt;
 							option.value=prompt;
