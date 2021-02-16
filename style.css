@@ -1,70 +1,58 @@
-@charset "utf-8";
-#header{
-	height: 4rem;
-	width: 36rem;
+@charset 'utf-8';
+#header {
+  height: 4rem;
+  width: 100%;
 }
-#user-name,
-#file-list{
-	height: 4rem;
-	width: 14.4rem;
+#user-name, #file-list {
+  height: 4rem;
+  width: 14.4rem;
 }
-#menu-button{
-	height: 4rem;
-	width: 7.2rem;
+#menu-button {
+  height: 4rem;
+  width: 7.2rem;
 }
-#text-editor{
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	border: gray solid 0.1rem;
-	box-sizing: border-box;
-	cursor: text;
-	display: block;
-	font-family: "Cica";
-	font-size: 1rem;
-	height: calc(100% - 4rem);
-	outline: none;
-	padding: 0;
-	resize: none;
-	white-space: nowrap;
-	width: 36rem;
+#text-editor {
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: gray solid 0.1rem;
+  box-sizing: border-box;
+  cursor: text;
+  display: block;
+  font-family: monospace;
+  font-size: 1rem;
+  height: calc(100% - 4rem);
+  outline: none;
+  padding: 0;
+  resize: none;
+  white-space: nowrap;
+  width: 100%;
 }
-#menu-dialog,
-#alert-dialog,
-#share-dialog{
-	-moz-border-radius: 0.5rem;
-	-ms-border-radius: 0.5rem;
-	-o-border-radius: 0.5rem;
-	-webkit-border-radius: 0.5rem;
-	background-color: lightgray;
-	border: gray solid 0.1rem;
-	border-radius: 0.5rem;
-	padding: 0.5rem;
+#menu-dialog, #alert-dialog, #share-dialog {
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  background-color: lightgray;
+  border: gray solid 0.1rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
-#menu-container,
-#alert-container,
-#share-container{
-	flex-direction: column;
-	height: 20rem;
-	width: 18rem;
+#menu-container, #alert-container, #share-container {
+  flex-direction: column;
+  height: 20rem;
+  width: 18rem;
 }
-#create-button,
-#save-button,
-#delete-button,
-#close-button,
-#share-button,
-#alert-button{
-	height: 4rem;
-	width: 18rem;
+#create-button, #save-button, #delete-button, #close-button, #share-button, #alert-button {
+  height: 4rem;
+  width: 18rem;
 }
-#alert-text,
-#share-text{
-	height: 16rem;
-	width: 18rem;
+#alert-text, #share-text {
+  height: 16rem;
+  width: 18rem;
 }
-#negative-button,
-#positive-button{
-	height: 4rem;
-	width: 9rem;
+#negative-button, #positive-button {
+  height: 4rem;
+  width: 9rem;
 }
